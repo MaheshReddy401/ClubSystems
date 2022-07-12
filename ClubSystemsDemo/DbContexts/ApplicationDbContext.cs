@@ -57,7 +57,7 @@ namespace ClubSystemsTest.DbContexts
                 Surname = "Peddapala",
                 EmailAddress = "Ajay.Peddapala@hotmail.com"
             });
-            //modelBuilder.Entity<UserDetails>().ToTable("UserDetails");
+
             modelBuilder.Entity<MembershipDetails>().HasData(
                     new MembershipDetails
                     {
