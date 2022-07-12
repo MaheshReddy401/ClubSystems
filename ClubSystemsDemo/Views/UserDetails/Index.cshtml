@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ClubSystemsTest.Models.Dto.UserDetailsDto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h3 class="text-primary">Users List</h3>
+		</div>
+        <div class="col-6 text-end">
+            <a asp-controller="UserDetails" asp-action="Create" class="btn btn-primary">
+               <i class="bi bi-plus-circle"></i> &nbsp; Create New User
+			</a>
+		</div>
+	</div>
+    <br /><br />
+
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Forename)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Surname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailAddress)
+            </th>
+            <th>
+                Actions
+            </th>
+		</tr>
+	</thead>
+    <tbody>
+        @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Forename)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailAddress)
+            </td>
+            <td>
+
+                <div class="w-75 btn-group" role="group">
+                        <a asp-controller="UserDetails" asp-action="Edit" asp-route-id="@item.PersonID"
+                        class="btn btn-primary mx-2"> <i class="bi bi-pencil-square"></i> Edit</a>
+                        <a asp-controller="UserDetails" asp-action="Details" asp-route-id="@item.PersonID"
+                        class="btn btn-danger mx-2"> <i class="bi bi-trash-fill"></i> Details</a>
+				</div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

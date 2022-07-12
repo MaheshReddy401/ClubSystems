@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ClubSystemsTest.Models.Dto.MembershipDetailsDto>
+
+@{
+    ViewData["Title"] = "OverDrawn Report";
+}
+
+<h3>OverDrawn Report</h3>
+
+<p>
+    <a asp-action="Index">Back to List</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountBalance)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.UserDetails.EmailAddress)
+            </th>
+             <th>
+                @Html.DisplayNameFor(model => model.UserDetails.Forename)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserDetails.PersonID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountBalance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserDetails.EmailAddress)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.UserDetails.Forename)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserDetails.PersonID)
+            </td>
+            @*<td>
+                <a asp-action="Edit" asp-route-id="@item.MemebershipID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MemebershipID">Details</a> 
+            </td>*@
+        </tr>
+}
+    </tbody>
+</table>
